@@ -24,7 +24,7 @@ def fetch_bomb_count(bomb_array, test_x, test_y):
                 if bomb_array[x][y] == -1:
                     bomb_count += 1
             except IndexError:
-                if debug: print "OutOfBounds Cell, do nothing"
+                if debug: print "IndexErroc, do nothing"
     return bomb_count
 
 def replace_bomb_count(canvas, bomb_array):
