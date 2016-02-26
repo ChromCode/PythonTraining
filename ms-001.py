@@ -15,7 +15,17 @@ def test_y(row, column):
     test_y = randint(0, max-1)
 
 def fetch_bomb_count(bomb_array, test_x, test_y):
-    
+    x_range = [ test_x-1, test_x, test_x+1 ] 
+    y_range = [ test_y-1, test_y, test_y+1 ]
+    bomb_count = 0
+    for x in x_range:
+        for y in y_range:
+            try:
+                if bomb_array[x][y] == -1:
+                    bomb_count += 1
+            except IndexError:
+                if debug: print "OutOfBounds Cell, do nothing"
+    return bomb_count
 
 def replace_bomb_count(canvas, bomb_array):
     for x in range(0, len(bomb_array)):
